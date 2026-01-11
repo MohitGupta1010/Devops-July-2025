@@ -11,33 +11,7 @@
     - CloudWatchAgentServerPolicy
     - Create Role
 
-**Skip Step 2**
-2. Create Custome Policy:
-    - this just for explanation no need to create
-    - because above role already having these all four permission
-    - Select Role
-    - Edit - Inline Policy - JSON
-```json
-{
-	"Version": "2012-10-17",
-	"Statement": [
-		{
-			"Sid": "Statement1",
-			"Effect": "Allow",
-			"Action": [
-				"logs:CreateLogGroup",
-				"logs:CreateLogStream",
-				"logs:PutLogEvents",
-				"logs:DescribeLogStreams"
-			],
-			"Resource": "*"
-		}
-	]
-}
-```
-- Give Name and save
-
-3. Attach Role to Instance:
+2. Attach Role to Instance:
 
     - EC2 --> Select --> Action --> Security --> Modify IAM Role
     - Attach Role which we have just created
@@ -47,7 +21,7 @@
     - here you can see iam is attached or not
 
 
-4. Connect with EC2 instance
+3. Connect with EC2 instance
 
 ```bash
 sudo yum install amazon-cloudwatch-agent -y
@@ -84,10 +58,6 @@ sudo nano /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json
 - Configure CloudWatch
 
 ```bash
- sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a start -c file:/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json -m ec2
-
-# Stop Agent Completely
-sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a stop
 
 # Start Again
 sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \
@@ -103,6 +73,10 @@ echo "FINAL SUCCESS TEST $(date)" | sudo tee -a /var/log/myapp/app.log
 # Check Watch Agent Log
 sudo tail -f /opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log
 # it should show like sending message to log group
+
+# Stop Agent Completely
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a stop
+
 ```
 - Go to cloudwatch 
 - check LogGroups and LogStreams
