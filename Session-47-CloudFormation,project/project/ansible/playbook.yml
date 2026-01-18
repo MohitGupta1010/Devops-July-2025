@@ -4,5 +4,7 @@
 
   roles:
     - node-exporter
+    - node_app
 
   # ansible-galaxy role init roles/node-exporter
+  # ansible-galaxy role init roles/node_app

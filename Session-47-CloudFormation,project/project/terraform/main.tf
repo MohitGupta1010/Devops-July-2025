@@ -34,7 +34,7 @@ resource "aws_instance" "monitoring" {
   ami = var.ami
   instance_type = var.instance_type
   key_name = var.key_name
-  vpc_security_group_ids = [aws_security_group.monitoring_sg]
+  vpc_security_group_ids = [aws_security_group.monitoring_sg.id]
 
   tags = {
     Name= "monitoring-node"
