@@ -1,0 +1,8 @@
+- name: Install Node exporter
+  hosts: node_exporter
+  become: yes
+
+  roles:
+    - node-exporter
+
+  # ansible-galaxy role init roles/node-exporter
