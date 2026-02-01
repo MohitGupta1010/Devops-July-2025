@@ -68,7 +68,7 @@ systemctl status codedeploy-agent # check status
 - select deployment group
 - select github
 - give any alias name and click on connect to github
-- RepoSitory Link: username/reponame
+- Repository Link: username/reponame
 - Create Deployment
 
 - Once Succeeded check in browser by accessing public IP
