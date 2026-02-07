@@ -84,3 +84,13 @@
     - adding under target Group
 - perform Health Check
 - Deregister on scale-in
+
+## After Practice Make Sure to clear all your resources
+
+    - delete Service
+    - Delete Cluster
+    - de-register Task Defination frst
+    - filter with inactive
+    - delete Task Defination
+    - Delete Load Balancer
+    - Delete Target Groups
